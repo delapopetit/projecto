@@ -25,3 +25,9 @@
                 })
                 .AsyncToList();
 //yes lasd
+if (product.ProductType == ProductType.BundledProduct && product.BundlePerItemPricing)
+            {
+                if (!batchContext.ProductBundleItems.FullyLoaded)
+                {
+                    await batchContext.ProductBundleItems.LoadAllAsync();
+                }
